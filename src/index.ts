@@ -25,7 +25,15 @@ export default {
     // Optional: Add a security check to ensure that requests are only for your own images.
     // This prevents others from using your worker as a free image resizing service.
     const allowedOrigin = `https://solampio.com`; // CHANGE THIS TO YOUR WEBSITE'S DOMAIN
-    if (!imageURL.startsWith(allowedOrigin)) {
+
+    const allowedOrigins = [
+        'https://www.solampio.com'
+        'https://cdn11.bigcommerce.com/s-yhdp96gt9k'
+    ];
+    
+    const isAllowed = allowedOrigins.some(origin => imageURL.startsWith(origin));
+
+    if (!isAllowed) {
         return new Response('Not an allowed origin.', { status: 403 });
     }
 
