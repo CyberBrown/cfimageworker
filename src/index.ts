@@ -78,15 +78,8 @@ export default {
         imageOptions.cf.image.fit = fit;
       }
       
-      // Detect if the browser supports AVIF or WebP.
-      const accept = request.headers.get('Accept');
-      if (/image\/avif/.test(accept)) {
-        imageOptions.cf.image.format = 'avif';
-      } else if (/image\/webp/.test(accept)) {
-        imageOptions.cf.image.format = 'webp';
-      } else {
-        imageOptions.cf.image.format = 'jpeg'; // Fallback for older browsers
-      }
+      // The manual check for 'Accept' header has been removed. 
+      // Relying on `format: 'auto'` is the recommended and more robust approach.
 
 
       // Fetch the image with the transformation options.
