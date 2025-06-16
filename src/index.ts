@@ -27,8 +27,8 @@ export default {
     const allowedOrigin = `https://solampio.com`; // CHANGE THIS TO YOUR WEBSITE'S DOMAIN
 
     const allowedOrigins = [
-        'https://www.solampio.com'
-        'https://cdn11.bigcommerce.com/s-yhdp96gt9k'
+        'https://www.solampio.com',
+        'https://cdn11.bigcommerce.com/s-yhdp96gt9k',
     ];
     
     const isAllowed = allowedOrigins.some(origin => imageURL.startsWith(origin));
